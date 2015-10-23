@@ -1,0 +1,16 @@
+{
+    "name": "strannikk/app-framework",
+    "description": "Just another PHP micro framework",
+    "type": "library",
+    "require": {
+        "zf1/zend-db": "^1.12",
+        "php": ">=5.2.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Dmitry Viskov",
+            "email": "strannik772@yandex.ru"
+        }
+    ]
+}
