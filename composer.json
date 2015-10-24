@@ -12,5 +12,8 @@
             "name": "Dmitry Viskov",
             "email": "strannik772@yandex.ru"
         }
-    ]
+    ],
+    "autoload": {
+        "psr-0": { "App\\": "framework" }
+    }
 }
