@@ -122,7 +122,7 @@ class App_Server_View_Php extends App_Server_View
         
         $templateName .= '.php';
         
-        require_once 'App/Template.php';
+        require_once APP_FRAMEWORK_MAIN_DIR . 'Template.php';
         $template = new App_Template($templateName);
         
         return $template;
