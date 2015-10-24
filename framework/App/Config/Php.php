@@ -11,7 +11,6 @@
 defined('APP_FRAMEWORK_MAIN_DIR') || define('APP_FRAMEWORK_MAIN_DIR', dirname(__FILE__) . '/../');
 require_once APP_FRAMEWORK_MAIN_DIR . 'Config.php';
 
-
 /**
  * Объекты данного класса позволяют работать с настройками,
  * хранящимися в php файле.
