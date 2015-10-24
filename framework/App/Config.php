@@ -7,6 +7,7 @@
  * @package    App_Config
  * @version    $Id:$
  */
+defined('APP_FRAMEWORK_MAIN_DIR') || define('APP_FRAMEWORK_MAIN_DIR', dirname(__FILE__) . '/');
 
 /**
  * Объекты данного класса используются для работы с некими конфигурациями, т.е.
@@ -123,7 +124,7 @@ class App_Config implements Countable, Iterator
             
             if (self::checkExtention($ext)) {
                 $ext = ucfirst($ext);
-                require_once "App/Config/{$ext}.php";
+                require_once APP_FRAMEWORK_MAIN_DIR . "Config/{$ext}.php";
                 $classConfigObj = 'App_Config_' . $ext;
                 self::$configStore[$path] = new $classConfigObj($path, $keyDelimiter, $allowModifications);
                 return self::$configStore[$path];

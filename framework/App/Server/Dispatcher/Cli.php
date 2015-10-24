@@ -8,8 +8,10 @@
  * @subpackage Dispatcher
  * @version    $Id:$
  */
-require_once 'App/Server/Dispatcher.php';
-require_once 'App/Server/Dispatcher/Internal.php';
+
+defined('APP_FRAMEWORK_MAIN_DIR') || define('APP_FRAMEWORK_MAIN_DIR', dirname(__FILE__) . '/../../');
+require_once APP_FRAMEWORK_MAIN_DIR . 'Server/Dispatcher.php';
+require_once APP_FRAMEWORK_MAIN_DIR . 'Server/Dispatcher/Internal.php';
 
 /**
  * Диспетчер, обрабатывающий обращение из командной строки через (php-cli)
@@ -36,7 +38,7 @@ class App_Server_Dispatcher_Cli extends App_Server_Dispatcher_Internal
      */
     protected function _initRequest()
     {
-        require_once 'App/Server/Request/Internal.php';
+        require_once APP_FRAMEWORK_MAIN_DIR . 'Server/Request/Internal.php';
         
         $path = 'http://internal' . $GLOBALS['argv'][1];
         

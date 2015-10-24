@@ -8,7 +8,8 @@
  * @subpackage Response
  * @version    $Id:$
  */
-require_once ('App/Server/Response.php');
+defined('APP_FRAMEWORK_MAIN_DIR') || define('APP_FRAMEWORK_MAIN_DIR', dirname(__FILE__) . '/../../');
+require_once APP_FRAMEWORK_MAIN_DIR . 'Server/Response.php';
 
 /**
  * Класс ответа на http-запрос

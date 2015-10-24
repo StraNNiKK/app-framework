@@ -8,8 +8,9 @@
  * @subpackage Writer
  * @version    $Id:$
  */
-require_once 'App/Config.php';
-require_once 'App/Config/Ini.php';
+defined('APP_FRAMEWORK_MAIN_DIR') || define('APP_FRAMEWORK_MAIN_DIR', dirname(__FILE__) . '/../../');
+require_once APP_FRAMEWORK_MAIN_DIR . 'Config.php';
+require_once APP_FRAMEWORK_MAIN_DIR . 'Config/Ini.php';
 
 /**
  * Объекты данного класса используются для перезаписи исходных

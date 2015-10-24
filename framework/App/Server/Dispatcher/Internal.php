@@ -8,7 +8,8 @@
  * @subpackage Dispatcher
  * @version    $Id:$
  */
-require_once 'App/Server/Dispatcher.php';
+defined('APP_FRAMEWORK_MAIN_DIR') || define('APP_FRAMEWORK_MAIN_DIR', dirname(__FILE__) . '/../../');
+require_once APP_FRAMEWORK_MAIN_DIR . 'Server/Dispatcher.php';
 
 /**
  * Диспетчер, обрабатывающий обычный запрос типа internal
@@ -39,7 +40,7 @@ class App_Server_Dispatcher_Internal extends App_Server_Dispatcher
      */
     protected function _initResponse()
     {
-        require_once ("App/Server/Response/Internal.php");
+        require_once (APP_FRAMEWORK_MAIN_DIR . "Server/Response/Internal.php");
         $this->_response = new App_Server_Response_Internal();
     }
 

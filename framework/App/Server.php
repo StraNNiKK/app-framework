@@ -7,10 +7,11 @@
  * @package    App_Server
  * @version    $Id:$
  */
-require_once 'App/Server/Error/Handler.php';
-require_once 'App/Server/Stack.php';
-require_once 'App/Router.php';
-require_once 'App/Controller.php';
+defined('APP_FRAMEWORK_MAIN_DIR') || define('APP_FRAMEWORK_MAIN_DIR', dirname(__FILE__) . '/');
+require_once APP_FRAMEWORK_MAIN_DIR . 'Server/Error/Handler.php';
+require_once APP_FRAMEWORK_MAIN_DIR . 'Server/Stack.php';
+require_once APP_FRAMEWORK_MAIN_DIR . 'Router.php';
+require_once APP_FRAMEWORK_MAIN_DIR . 'Controller.php';
 
 /**
  * Объект данного класса используется для диспетчеризации запроса
@@ -174,7 +175,7 @@ class App_Server
         
         if ($request && $request instanceof App_Server_Request_Internal) {
             
-            require_once 'App/Server/Dispatcher/Internal.php';
+            require_once APP_FRAMEWORK_MAIN_DIR . 'Server/Dispatcher/Internal.php';
             $this->_dispatcher = new App_Server_Dispatcher_Internal($request);
             
             // для использования в командной строке с использованием php-cli,
@@ -183,11 +184,11 @@ class App_Server
         } else 
             if (array_key_exists('argv', $GLOBALS) && array_key_exists('argc', $GLOBALS) && intval($GLOBALS['argc']) > 0) {
                 
-                require_once 'App/Server/Dispatcher/Cli.php';
+                require_once APP_FRAMEWORK_MAIN_DIR . 'Server/Dispatcher/Cli.php';
                 $this->_dispatcher = new App_Server_Dispatcher_Cli();
             } else {
                 
-                require_once 'App/Server/Dispatcher/Http.php';
+                require_once APP_FRAMEWORK_MAIN_DIR . 'Server/Dispatcher/Http.php';
                 $this->_dispatcher = new App_Server_Dispatcher_Http();
             }
         

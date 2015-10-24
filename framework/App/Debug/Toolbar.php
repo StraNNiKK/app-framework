@@ -1,5 +1,7 @@
 <?php
-require_once 'App/Debug/Toolbar/Interface.php';
+
+defined('APP_FRAMEWORK_MAIN_DIR') || define('APP_FRAMEWORK_MAIN_DIR', dirname(__FILE__) . '/../');
+require_once APP_FRAMEWORK_MAIN_DIR . 'Debug/Toolbar/Interface.php';
 
 class App_Debug_Toolbar
 {

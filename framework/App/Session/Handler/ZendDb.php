@@ -1,5 +1,7 @@
 <?php
-require_once 'App/Session/Handler/Interface.php';
+defined('APP_FRAMEWORK_MAIN_DIR') || define('APP_FRAMEWORK_MAIN_DIR', dirname(__FILE__) . '/../../');
+require_once APP_FRAMEWORK_MAIN_DIR . 'Session/Handler/Interface.php';
+
 
 class App_Session_Handler_ZendDb implements App_Session_Handler_Interface
 {

@@ -1,5 +1,7 @@
 <?php
-require_once 'App/Event/Dispatcher.php';
+
+defined('APP_FRAMEWORK_MAIN_DIR') || define('APP_FRAMEWORK_MAIN_DIR', dirname(__FILE__) . '/../../');
+require_once APP_FRAMEWORK_MAIN_DIR . 'Event/Dispatcher.php';
 
 abstract class App_Event_Observable_Abstract
 {

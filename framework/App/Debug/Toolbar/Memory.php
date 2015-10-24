@@ -12,7 +12,8 @@ class App_Debug_Toolbar_Memory implements App_Debug_Toolbar_Interface
         $memoryMessage = '';
         
         if (function_exists('memory_get_peak_usage')) {
-            $memoryMessage = round(memory_get_peak_usage() / 1024) . 'K of ' . ini_get('memory_limit');
+            $memoryLimit = intval(ini_get('memory_limit'));
+            $memoryMessage = round(memory_get_peak_usage() / 1024) . 'K' . (($memoryLimit > 0) ? (' of ' . $memoryLimit) : '');
         } else {
             $memoryMessage = 'MemUsage n.a.';
         }

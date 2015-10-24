@@ -8,8 +8,9 @@
  * @subpackage Dispatcher
  * @version    $Id:$
  */
-require_once 'App/Server/Request.php';
-require_once 'App/Server/Request/Http.php';
+defined('APP_FRAMEWORK_MAIN_DIR') || define('APP_FRAMEWORK_MAIN_DIR', dirname(__FILE__) . '/../../');
+require_once APP_FRAMEWORK_MAIN_DIR . 'Server/Request.php';
+require_once APP_FRAMEWORK_MAIN_DIR . 'Server/Request/Http.php';
 
 /**
  * Класс для запроса типа internal (internal://a/b/c...)

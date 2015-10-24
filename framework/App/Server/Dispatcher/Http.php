@@ -8,7 +8,9 @@
  * @subpackage Dispatcher
  * @version    $Id:$
  */
-require_once 'App/Server/Dispatcher.php';
+
+defined('APP_FRAMEWORK_MAIN_DIR') || define('APP_FRAMEWORK_MAIN_DIR', dirname(__FILE__) . '/../../');
+require_once APP_FRAMEWORK_MAIN_DIR . 'Server/Dispatcher.php';
 
 /**
  * Диспетчер, обрабатывающий обычный http-запрос
@@ -27,7 +29,7 @@ class App_Server_Dispatcher_Http extends App_Server_Dispatcher
      */
     protected function _initRequest()
     {
-        require_once ("App/Server/Request/Http.php");
+        require_once (APP_FRAMEWORK_MAIN_DIR . "Server/Request/Http.php");
         $this->_request = new App_Server_Request_Http();
     }
 
@@ -38,7 +40,7 @@ class App_Server_Dispatcher_Http extends App_Server_Dispatcher
      */
     protected function _initResponse()
     {
-        require_once ("App/Server/Response/Http.php");
+        require_once (APP_FRAMEWORK_MAIN_DIR . "Server/Response/Http.php");
         $this->_response = new App_Server_Response_Http();
     }
 
@@ -63,7 +65,6 @@ class App_Server_Dispatcher_Http extends App_Server_Dispatcher
             $this->_dispatch($controller);
         } catch (App_Server_Router_Exception $e) {
             // 404 error - page not found
-            trigger_error($e->getMessage(), E_USER_NOTICE);
             $this->_runError($e, '404');
         } catch (Exception $e) {
             // 500 internal server error

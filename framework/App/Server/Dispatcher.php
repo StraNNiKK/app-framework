@@ -8,6 +8,8 @@
  * @subpackage Dispatcher
  * @version    $Id:$
  */
+defined('APP_FRAMEWORK_MAIN_DIR') || define('APP_FRAMEWORK_MAIN_DIR', dirname(__FILE__) . '/../');
+
 
 /**
  * Абстрактный класс, содержащий общие для всех диспетчеров методы.
@@ -96,7 +98,7 @@ abstract class App_Server_Dispatcher
     {
         $config = App_Server::getConfig();
         if (array_key_exists('router', $config)) {
-            require_once "App/Server/Router.php";
+            require_once APP_FRAMEWORK_MAIN_DIR . "Server/Router.php";
             $this->_router = new App_Server_Router($config['router']);
         } else {
             throw new Exception('You should configure route');
@@ -110,7 +112,7 @@ abstract class App_Server_Dispatcher
      */
     protected function _initView()
     {
-        require_once ("App/Server/View.php");
+        require_once APP_FRAMEWORK_MAIN_DIR . "Server/View.php";
         $this->_view = App_Server_View::getInstance($this->getRequest()->getExt());
         
         if (! is_object($this->_view)) {
@@ -125,7 +127,7 @@ abstract class App_Server_Dispatcher
      */
     protected function _initDefaultView()
     {
-        require_once ("App/Server/View.php");
+        require_once APP_FRAMEWORK_MAIN_DIR . "Server/View.php";
         $this->_view = App_Server_View::getInstance($this->getRequest()->getDefaultExt());
         
         if (! is_object($this->_view)) {

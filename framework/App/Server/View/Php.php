@@ -8,7 +8,9 @@
  * @subpackage View
  * @version    $Id:$
  */
-require_once 'App/Server/View.php';
+defined('APP_FRAMEWORK_MAIN_DIR') || define('APP_FRAMEWORK_MAIN_DIR', dirname(__FILE__) . '/../../');
+require_once APP_FRAMEWORK_MAIN_DIR . 'Server/View.php';
+
 
 /**
  * Отображение в ответ на запрос php-скрипта.

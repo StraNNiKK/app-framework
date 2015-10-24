@@ -7,13 +7,21 @@
  * @package    App_Application
  * @version    $Id:$
  */
-require_once 'App/Debug.php';
-require_once 'App/Functions.php';
-require_once 'App/Config.php';
-require_once 'App/Loader.php';
-require_once 'App/Event/Dispatcher.php';
-require_once 'App/Server.php';
-require_once 'App/Server/Steam/Wrapper.php';
+
+// define start time constant
+defined('START_TIME') || define('START_TIME', microtime(true));
+
+// define framework main dir
+defined('APP_FRAMEWORK_MAIN_DIR') || define('APP_FRAMEWORK_MAIN_DIR', dirname(__FILE__) . '/');
+
+
+require_once APP_FRAMEWORK_MAIN_DIR . 'Debug.php';
+require_once APP_FRAMEWORK_MAIN_DIR . 'Functions.php';
+require_once APP_FRAMEWORK_MAIN_DIR . 'Config.php';
+require_once APP_FRAMEWORK_MAIN_DIR . 'Loader.php';
+require_once APP_FRAMEWORK_MAIN_DIR . 'Event/Dispatcher.php';
+require_once APP_FRAMEWORK_MAIN_DIR . 'Server.php';
+require_once APP_FRAMEWORK_MAIN_DIR . 'Server/Steam/Wrapper.php';
 
 /**
  * Класс отвечает за первичную инициализацию приложения.
@@ -55,6 +63,8 @@ class App_Application
      */
     public function __construct($configPath = null)
     {
+        new App_Functions();
+
         $this->_loadConfig($configPath);
         $this->_setDefaultTimezone();
         $this->_loadAutoloader();
@@ -124,8 +134,8 @@ class App_Application
     {
         App_Debug::setAllow((bool) self::$applicationConfig['debug']['enable']);
         
-        if (self::$applicationConfig['debug']['toolbar']['enable'] == true && count(self::$applicationConfig['debug']['toolbar']['data']) > 0) {
-            require_once 'App/Debug/Toolbar.php';
+        if (self::$applicationConfig['debug']['toolbar']['enable'] == true) {
+            require_once APP_FRAMEWORK_MAIN_DIR . 'Debug/Toolbar.php';
             App_Debug::enableToolbar(true);
         }
     }
@@ -167,7 +177,7 @@ class App_Application
             }
             
             if (array_key_exists('autostart', self::$applicationConfig['store']['session']) && self::$applicationConfig['store']['session']['autostart'] == true) {
-                require_once 'App/Session.php';
+                require_once APP_FRAMEWORK_MAIN_DIR . 'Session.php';
                 App_Session::getInstance()->init();
                 App_Session::getInstance()->start();
             }

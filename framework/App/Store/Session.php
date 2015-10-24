@@ -1,5 +1,6 @@
 <?php
-require_once 'App/Store/Interface.php';
+defined('APP_FRAMEWORK_MAIN_DIR') || define('APP_FRAMEWORK_MAIN_DIR', dirname(__FILE__) . '/../');
+require_once APP_FRAMEWORK_MAIN_DIR . 'Store/Interface.php';
 
 class App_Store_Session implements App_Store_Interface
 {

@@ -7,7 +7,8 @@
  * @package    App_Event_Dispatcher
  * @version    $Id:$
  */
-require_once 'App/Event/Observable/System.php';
+defined('APP_FRAMEWORK_MAIN_DIR') || define('APP_FRAMEWORK_MAIN_DIR', dirname(__FILE__) . '/../');
+require_once APP_FRAMEWORK_MAIN_DIR . 'Event/Observable/System.php';
 
 /**
  * Класс отвечает за реализацию диспетчеризации событий

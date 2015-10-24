@@ -8,8 +8,10 @@
  * @subpackage Stream
  * @version    $Id:$
  */
-require_once 'App/Server.php';
-require_once 'App/Server/Stack.php';
+defined('APP_FRAMEWORK_MAIN_DIR') || define('APP_FRAMEWORK_MAIN_DIR', dirname(__FILE__) . '/../../');
+require_once APP_FRAMEWORK_MAIN_DIR . 'Server.php';
+require_once APP_FRAMEWORK_MAIN_DIR . 'Server/Stack.php';
+
 
 /**
  * Реализация url-обретки для запросов вида (internal://...)
