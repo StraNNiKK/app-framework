@@ -1,4 +1,6 @@
-# PHP App framework
+PHP App framework
+============
+
 Just another PHP micro frameworkthat helps you quickly write simple yet powerful web applications
 
 * You need PHP >= 5.2.x
